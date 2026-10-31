@@ -126,7 +126,9 @@ section{padding:72px 0;position:relative}
 
 /* hero */
 .hero{padding:26px 0 0;overflow:hidden}
-.hero .wrap{display:grid;gap:26px}
+.hero .wrap{display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}
+.hero .copy{min-width:0}
+.ticker .tx{min-width:0}
 .hero .lead{color:var(--mut);font-size:18px;margin:16px 0 0;max-width:520px}
 .hero .lead b{color:var(--ink);font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
@@ -160,7 +162,7 @@ section{padding:72px 0;position:relative}
 .dunes{display:block;width:100%;height:120px;margin-top:-60px;position:relative;z-index:1}
 @media(min-width:900px){
   .hero{padding-top:40px}
-  .hero .wrap{grid-template-columns:1.05fr .95fr;align-items:center}
+  .hero .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center}
   .stage{height:600px;margin:0}
   .bigif{font-size:320px;bottom:150px}
   .bub.b3{display:block;left:30px;bottom:60px}
@@ -466,11 +468,93 @@ details.fq2 p{margin:0;padding:0 18px 18px;color:var(--mut)}
 .outro ol{text-align:left;max-width:520px;margin:16px auto 0;padding-left:20px;display:grid;gap:8px}
 footer{padding:36px 0 110px;text-align:center;color:var(--mut);font-size:13px}
 
+/* hero extras */
+.ticker{display:flex;align-items:center;gap:10px;margin-top:18px;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh);max-width:520px;overflow:hidden}
+.ticker .tg{flex:none;font-size:12px;font-weight:700;color:#fff;padding:4px 8px;border-radius:8px;background:var(--or);min-width:58px;text-align:center}
+.ticker .tx{font-weight:600;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ticker .tx b{color:var(--or)}
+.spark{position:absolute;color:#fff;font-size:22px;line-height:1;pointer-events:none;animation:tw 2.6s ease-in-out infinite;text-shadow:0 0 12px rgba(255,255,255,.8)}
+.spark.dk{color:var(--brown);text-shadow:none}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.5) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(90deg)}}
+.bigif{transform-style:preserve-3d}
+.stage .ring{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-190px 0 0 -150px;border-radius:50%;border:2px dashed rgba(255,255,255,.55);animation:spin 26s linear infinite}
+.stage .ring::after{content:'';position:absolute;left:50%;top:-7px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(min-width:900px){.stage .ring{width:440px;height:440px;margin:-260px 0 0 -220px}}
+
+/* two halves */
+.parts{position:relative;overflow:hidden;padding:56px 0}
+.giant{white-space:nowrap;font-weight:700;letter-spacing:-.05em;font-size:clamp(70px,20vw,200px);line-height:.9;color:transparent;-webkit-text-stroke:2px #E6D6C8;user-select:none;pointer-events:none}
+.giant b{color:var(--or3);-webkit-text-stroke:0}
+.giant.g2{text-align:right}
+.sp-card{max-width:760px;margin:-34px auto 0;padding:26px 18px 20px;position:relative;z-index:2;text-align:center}
+.sp{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:18px 0 8px}
+.sp.swap{flex-direction:row-reverse}
+.half{display:inline-flex;flex-direction:column;align-items:center;gap:8px}
+.half .t{padding:12px 16px;border-radius:14px;font-weight:600;font-size:clamp(19px,5.4vw,28px);letter-spacing:-.02em;white-space:nowrap}
+.half.a .t{background:var(--brown);color:#fff}
+.half.b .t{background:var(--or);color:#fff;box-shadow:0 12px 24px -12px rgba(246,92,14,.8)}
+.half small{font-size:12.5px;color:var(--mut);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.half .cm{color:#FFB37E}
+.sp-cap{min-height:46px;color:var(--mut);margin:10px auto 0;max-width:520px}
+.sp-cap b{color:var(--ink)}
+
+/* mode scenes */
+.scene{position:relative;height:74px;margin:14px 0 2px;border-radius:14px;background:linear-gradient(180deg,#FBF8F5,#F3EDE7);border:1px solid var(--line);overflow:hidden}
+.scene *{animation-play-state:paused!important}
+.scene.run *{animation-play-state:running!important}
+.sc-z .hp{position:absolute;left:14px;right:96px;top:28px;height:16px;border-radius:9px;background:#E8DED5;overflow:hidden}
+.sc-z .hp i{position:absolute;inset:0;background:linear-gradient(90deg,#2BCB63,#8BE36A);transform-origin:0 50%;animation:hp 4s ease-in-out infinite}
+.sc-z .lb{position:absolute;left:14px;top:8px;font-size:11px;font-weight:700;color:var(--mut)}
+.sc-z .st{position:absolute;right:12px;top:22px;font-weight:700;font-size:14px;padding:5px 9px;border-radius:9px;color:#fff;animation:st 4s ease-in-out infinite}
+.sc-z .st.d{background:var(--red);animation-name:std}
+.sc-z .st.r{background:var(--green);animation-name:str}
+@keyframes hp{0%,8%{transform:scaleX(1)}40%,55%{transform:scaleX(0)}85%,100%{transform:scaleX(1)}}
+@keyframes std{0%,38%{opacity:0;transform:scale(.4)}45%,60%{opacity:1;transform:scale(1)}66%,100%{opacity:0;transform:scale(.4)}}
+@keyframes str{0%,62%{opacity:0;transform:scale(.4)}70%,92%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.4)}}
+.sc-f .tr{position:absolute;left:18px;right:56px;top:46px;height:4px;border-radius:4px;background:repeating-linear-gradient(90deg,#D9CEC4 0 8px,transparent 8px 14px)}
+.sc-f .run{position:absolute;left:10px;top:24px;padding:4px 9px;border-radius:9px;background:var(--brown);color:#fff;font-size:12px;font-weight:700;animation:runr 3.6s cubic-bezier(.5,0,.3,1) infinite}
+.sc-f .fl{position:absolute;right:16px;top:14px;font-size:30px;transform-origin:10% 100%;animation:wave 1.2s ease-in-out infinite alternate}
+.sc-f .nw{position:absolute;left:14px;bottom:6px;font-size:11px;color:var(--mut);font-weight:600}
+.sc-f .fu{position:absolute;right:12px;bottom:6px;font-size:11px;color:var(--mut);font-weight:600}
+@keyframes runr{0%{transform:translateX(0)}70%,100%{transform:translateX(calc(100cqw - 120px))}}
+@keyframes wave{to{transform:rotate(-12deg)}}
+.scene{container-type:inline-size}
+.sc-s .hd{position:absolute;left:16px;bottom:10px;width:34px;height:34px;border-radius:50%;background:var(--yel);display:grid;place-items:center;font-size:18px}
+.sc-s .dot{position:absolute;width:8px;height:8px;border-radius:50%;background:#E6D6C8;animation:bub 2.4s ease-in-out infinite}
+.sc-s .d1{left:56px;bottom:40px}.sc-s .d2{left:70px;bottom:50px;width:11px;height:11px;animation-delay:.3s}.sc-s .d3{left:88px;bottom:56px;width:14px;height:14px;animation-delay:.6s}
+.sc-s .cloud{position:absolute;left:110px;right:12px;top:10px;bottom:10px;border-radius:30px;border:2px dashed #E3B53A;background:#FFFBEA;display:grid;place-items:center;font-weight:600;font-size:14.5px;color:#8A6400;animation:dream 3s ease-in-out infinite}
+@keyframes bub{0%,100%{transform:scale(.6);opacity:.4}50%{transform:scale(1);opacity:1}}
+@keyframes dream{0%,100%{transform:scale(.97) rotate(-1deg)}50%{transform:scale(1.02) rotate(1deg)}}
+.sc-t .clk{position:absolute;left:14px;top:10px;width:54px;height:54px;border-radius:50%;background:#fff;border:3px solid var(--brown)}
+.sc-t .clk i{position:absolute;left:50%;top:50%;width:3px;height:20px;margin-left:-1.5px;background:var(--brown);border-radius:2px;transform-origin:50% 0;animation:back 1.6s linear infinite}
+.sc-t .clk i+i{height:14px;background:var(--red);animation-duration:6s}
+@keyframes back{from{transform:rotate(180deg)}to{transform:rotate(-180deg)}}
+.sc-t .rw{position:absolute;left:84px;top:22px;font-weight:700;font-size:15px;color:var(--mut)}
+.sc-t .stamp{position:absolute;right:14px;top:18px;padding:6px 10px;border:3px solid var(--red);color:var(--red);border-radius:8px;font-weight:800;font-size:12.5px;letter-spacing:.04em;animation:stamp 3.2s ease-out infinite}
+@keyframes stamp{0%,30%{opacity:0;transform:scale(2.2) rotate(-14deg)}40%,85%{opacity:1;transform:scale(1) rotate(-8deg)}100%{opacity:0;transform:scale(1) rotate(-8deg)}}
+.sc-m svg{position:absolute;inset:0;width:100%;height:100%}
+.sc-m text{font-size:11px;font-weight:700;fill:var(--mut);font-family:var(--f)}
+
+/* platform numbers */
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+.num{padding:14px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh)}
+.num b{display:block;font-size:clamp(30px,8vw,44px);font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--brown)}
+.num b i{font-style:normal;color:var(--or)}
+.num>span{display:block;font-size:13px;color:var(--mut);margin-top:6px;line-height:1.25}
+.num b i{font-size:.55em;letter-spacing:-.02em}
+@media(min-width:900px){.nums{grid-template-columns:repeat(4,1fr)}}
+.fluff{position:absolute;right:-60px;top:-40px;width:260px;height:260px;pointer-events:none;opacity:.95;z-index:0}
+@media(max-width:899px){.fluff{width:170px;height:170px;right:-50px;top:-30px}}
+.deco{position:absolute;width:64px;pointer-events:none;z-index:0;filter:drop-shadow(0 10px 12px rgba(58,31,20,.2))}
+@media(min-width:900px){.deco{width:96px}}
+section>.wrap{position:relative;z-index:1}
+
 /* reveal fallback */
 .rv,.stg>*{transition:translate .7s cubic-bezier(.2,.8,.2,1),rotate .7s}
 html:not(.gs) .io .rv:not(.in){translate:0 40px}
 .float{will-change:transform}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.gs .tl .fill{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.scene *,.spark,.ring{animation:none!important}*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.gs .tl .fill{transform:scaleY(1)}}
 </style>
 
 </head>
@@ -570,9 +654,12 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <a class="btn dark" href="#start"><svg class="ic"><use href="#i-asterisk"/></svg>Начать гайд</a>
         <a class="btn light" href="#video"><svg class="ic"><use href="#i-circle-play"/></svg>Видео за 4 минуты</a>
       </div>
+      <div class="ticker" aria-live="off"><span class="tg" id="tkTag">First</span><span class="tx" id="tkTx">If it <b>rains</b>, I <b>will stay</b> home.</span></div>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="sun"></div>
+      <div class="ring"></div>
+      <span class="spark" style="left:22%;top:30%">✳</span><span class="spark" style="left:74%;top:40%;animation-delay:.8s;font-size:16px">✳</span><span class="spark" style="left:58%;top:22%;animation-delay:1.5s;font-size:14px">✳</span><span class="spark" style="left:34%;top:62%;animation-delay:2s;font-size:18px">✳</span>
       <span class="badge hb">5 режимов if</span>
       <div class="bigif">if<span>?</span></div>
       <img class="stk s3 float" src="../media/3d-rocket.webp" alt="" width="260" height="260">
@@ -614,6 +701,22 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
   </div>
 </section>
 
+<section class="parts" id="parts">
+  <div class="giant g1" aria-hidden="true">условие <b>→</b></div>
+  <div class="wrap">
+    <div class="sp-card card rv">
+      <span class="note">сначала анатомия</span>
+      <h2 class="h2" style="font-size:clamp(28px,7.6vw,46px);margin-top:6px">Две половины и одна запятая</h2>
+      <div class="sp" id="sp">
+        <span class="half a"><span class="t" id="spA">If it rains<span class="cm">,</span></span><small>условие · if</small></span>
+        <span class="half b"><span class="t" id="spB">I'll stay home.</span><small>результат</small></span>
+      </div>
+      <p class="sp-cap" id="spCap"><b>If впереди?</b> Ставь запятую между половинами.</p>
+    </div>
+  </div>
+  <div class="giant g2" aria-hidden="true"><b>→</b> результат</div>
+</section>
+
 <section id="how" style="padding-top:20px">
   <div class="wrap">
     <div class="head"><h2 class="h2 split">Как работает гайд</h2><p class="sub">Четыре шага. Иди по порядку.</p></div>
@@ -628,6 +731,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
 </section>
 
 <section id="start">
+  <img class="deco" data-par="-30" src="../media/3d-bulb.webp" alt="" width="260" height="260" loading="lazy" style="left:-14px;top:40px">
   <div class="wrap">
     <div class="head"><span class="note">шаг 1</span><h2 class="h2 split">Два вопроса решают всё</h2><p class="sub">Видишь if? Задай себе два вопроса. Ответы сами выберут тип.</p></div>
     <div class="two stg">
@@ -656,6 +760,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <img class="top3d" src="../media/3d-bulb.webp" alt="" width="260" height="260" loading="lazy">
         <div class="mhead"><span class="mnum" style="background:var(--blue)">0</span><div><h3>Zero</h3><p>законы игры</p></div></div>
         <p class="what">Работает всегда. Как механика: умер, значит возродишься. Без исключений.</p>
+        <div class="scene sc-z" aria-hidden="true"><span class="lb">HP</span><span class="hp"><i></i></span><span class="st d">YOU DIED</span><span class="st r">RESPAWN</span></div>
         <div class="formula"><span class="k">If</span><span class="v">Present Simple</span><em>,</em><span class="v">Present Simple</span></div>
         <ul class="ex">
           <li><button class="say" data-say="If you die, you respawn." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span class="en">If you <b>die</b>, you <b>respawn</b>.<span class="rus">Умираешь, возрождаешься.</span></span></li>
@@ -669,6 +774,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <img class="top3d" src="../media/3d-target.webp" alt="" width="260" height="260" loading="lazy">
         <div class="mhead"><span class="mnum" style="background:var(--green)">1</span><div><h3>First</h3><p>план на матч</p></div></div>
         <p class="what">Реальное будущее. Может случиться. Зависит от тебя.</p>
+        <div class="scene sc-f" aria-hidden="true"><span class="tr"></span><span class="run">will</span><span class="fl">🏁</span><span class="nw">сейчас</span><span class="fu">будущее</span></div>
         <div class="formula"><span class="k">If</span><span class="v">Present Simple</span><em>,</em><span class="v">will + глагол</span></div>
         <ul class="ex">
           <li><button class="say" data-say="If we attack now, we will win." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span class="en">If we <b>attack</b> now, we <b>will win</b>.<span class="rus">Атакуем сейчас, победим.</span></span></li>
@@ -683,6 +789,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <img class="top3d" src="../media/3d-crown.webp" alt="" width="260" height="260" loading="lazy">
         <div class="mhead"><span class="mnum" style="background:var(--yel)">2</span><div><h3>Second</h3><p>мечта</p></div></div>
         <p class="what">Нереально сейчас. Фантазия. Если бы да кабы.</p>
+        <div class="scene sc-s" aria-hidden="true"><span class="hd">🙂</span><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="cloud">if I were rich…</span></div>
         <div class="formula"><span class="k">If</span><span class="v">Past Simple</span><em>,</em><span class="v">would + глагол</span></div>
         <ul class="ex">
           <li><button class="say" data-say="If I had a million, I would buy a house in Rome." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span class="en">If I <b>had</b> a million, I <b>would buy</b> a house in Rome.<span class="rus">Был бы миллион, купил бы дом в Риме.</span></span></li>
@@ -697,6 +804,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <img class="top3d" src="../media/3d-zoom.webp" alt="" width="260" height="260" loading="lazy">
         <div class="mhead"><span class="mnum" style="background:var(--red)">3</span><div><h3>Third</h3><p>разбор проигранного матча</p></div></div>
         <p class="what">Прошлое. Уже случилось. Не переиграть. Можно только жалеть или упрекать.</p>
+        <div class="scene sc-t" aria-hidden="true"><span class="clk"><i></i><i></i></span><span class="rw">⏪ перемотка…</span><span class="stamp">ПОЗДНО</span></div>
         <div class="formula"><span class="k">If</span><span class="v">had + V3</span><em>,</em><span class="v">would have + V3</span></div>
         <ul class="ex">
           <li><button class="say" data-say="If you had saved the game, we wouldn't have lost." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span class="en">If you <b>had saved</b> the game, we <b>wouldn't have lost</b>.<span class="rus">Сохранился бы ты, мы бы не проиграли.</span></span></li>
@@ -711,6 +819,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <img class="top3d" src="../media/3d-rocket.webp" alt="" width="260" height="260" loading="lazy">
         <div class="mhead"><span class="mnum" style="background:var(--or)">M</span><div><h3>Mixed</h3><p>из аула в Рим</p></div></div>
         <p class="what">Причина в прошлом, а итог сейчас. Склеиваем Third и Second.</p>
+        <div class="scene sc-m" aria-hidden="true"><svg viewBox="0 0 320 74" preserveAspectRatio="none"><path id="mxp" d="M24 56 C 110 56, 150 12, 296 22" fill="none" stroke="#E3D3C5" stroke-width="3" stroke-dasharray="6 6"/><circle cx="24" cy="56" r="7" fill="#3A1F14"/><circle cx="296" cy="22" r="7" fill="#F65C0E"/><text x="10" y="72">тогда</text><text x="270" y="44">сейчас</text><circle r="6" fill="#F65C0E"><animateMotion dur="2.6s" repeatCount="indefinite" path="M24 56 C 110 56, 150 12, 296 22"/></circle></svg></div>
         <div class="formula"><span class="k">If</span><span class="v">had + V3</span><em>,</em><span class="v">would + глагол</span><em>(сейчас)</em></div>
         <ul class="ex">
           <li><button class="say" data-say="If I hadn't played online games, I wouldn't speak English now." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span class="en">If I <b>hadn't played</b> online games, I <b>wouldn't speak</b> English now.<span class="rus">Не играл бы в онлайн-игры, не говорил бы сейчас по-английски.</span></span></li>
@@ -769,6 +878,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
 </section>
 
 <section id="practice">
+  <img class="deco" data-par="40" src="../media/3d-target.webp" alt="" width="260" height="260" loading="lazy" style="right:-12px;top:30px">
   <div class="wrap">
     <div class="head"><span class="note">шаг 4</span><h2 class="h2 split">Практика. Без неё всё забудешь</h2><p class="sub">If you practise, you will remember. Это First Conditional, кстати.</p></div>
     <div class="qz card rv" id="qz"></div>
@@ -784,6 +894,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
 </section>
 
 <section id="cheat">
+  <img class="deco" data-par="-40" src="../media/3d-notebook.webp" alt="" width="260" height="260" loading="lazy" style="left:-12px;top:10px">
   <div class="wrap">
     <div class="head"><h2 class="h2 split">Шпаргалка. Сохрани скрин</h2></div>
     <div class="cheat stg">
@@ -930,6 +1041,72 @@ function xInit(){
     document.documentElement.classList.add('io');
     var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:.12});
     $$('.rv').forEach(function(el){ io.observe(el); });
+  }
+
+  /* hero ticker */
+  (function(){
+    var T = [['Zero','If you <b>die</b>, you <b>respawn</b>.'],['First','If it <b>rains</b>, I <b>will stay</b> home.'],['Second','If I <b>were</b> you, I<b>\'d try</b> again.'],['Third','If you <b>had saved</b>, we <b>wouldn\'t have lost</b>.'],['Mixed','If I <b>hadn\'t played</b>, I <b>wouldn\'t be</b> here.']];
+    var tg = $('#tkTag'), tx = $('#tkTx'), k = 1, iv = null;
+    function next(){ k = (k+1) % T.length;
+      if(G && !reduce){ G.to([tg, tx], {yPercent:-120, opacity:0, duration:.25, ease:'power2.in', onComplete:function(){ tg.textContent = T[k][0]; tx.innerHTML = T[k][1]; G.fromTo([tg, tx], {yPercent:120, opacity:0}, {yPercent:0, opacity:1, duration:.45, ease:'back.out(2)', stagger:.05}); }}); }
+      else { tg.textContent = T[k][0]; tx.innerHTML = T[k][1]; } }
+    if(!reduce) whenVisible($('.ticker'), function(){ if(!iv) iv = setInterval(next, 2600); }, function(){ clearInterval(iv); iv = null; });
+  })();
+
+  /* 3D if: tilt with pointer, sway with scroll */
+  (function(){
+    var bi = $('.bigif'), st = $('.stage');
+    if(!G || reduce || !bi) return;
+    G.set(bi, {transformPerspective:700});
+    G.to(bi, {rotationY:-14, rotationX:6, duration:3.2, ease:'sine.inOut', yoyo:true, repeat:-1});
+    G.to(bi, {y:-10, duration:2.2, ease:'sine.inOut', yoyo:true, repeat:-1});
+    if(matchMedia('(pointer:fine)').matches){
+      var rx = G.quickTo(bi, 'rotationX', {duration:.6, ease:'power3'}), ry = G.quickTo(bi, 'rotationY', {duration:.6, ease:'power3'});
+      st.addEventListener('pointermove', function(e){ G.killTweensOf(bi, 'rotationX,rotationY'); var r = st.getBoundingClientRect(); ry(((e.clientX - r.left)/r.width - .5) * 40); rx(-((e.clientY - r.top)/r.height - .5) * 30); });
+    }
+    G.to('.stage .ring', {scale:1.15, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+  })();
+
+  /* two halves: split, swap, comma */
+  (function(){
+    var sp = $('#sp'), A = $('#spA'), B = $('#spB'), cap = $('#spCap'), st = 0, iv = null;
+    var S = [
+      {a:'If it rains<span class="cm">,</span>', b:"I'll stay home.", sw:false, c:'<b>If впереди?</b> Ставь запятую между половинами.'},
+      {a:'if it rains.', b:"I'll stay home", sw:true, c:'<b>Результат впереди?</b> Запятая не нужна. Смысл тот же.'}
+    ];
+    function flip(){
+      var halves = $$('.half', sp), before = halves.map(function(h){ return h.getBoundingClientRect(); });
+      st = 1 - st; var s = S[st]; A.innerHTML = s.a; B.textContent = s.b; sp.classList.toggle('swap', s.sw); cap.innerHTML = s.c;
+      if(G && !reduce){
+        halves.forEach(function(h, i){ var a = h.getBoundingClientRect(); G.fromTo(h, {x:before[i].left - a.left, y:before[i].top - a.top, rotation:i ? 6 : -6}, {x:0, y:0, rotation:0, duration:.8, ease:'back.out(1.6)'}); });
+        G.fromTo(cap, {y:10, opacity:0}, {y:0, opacity:1, duration:.5, delay:.3});
+      }
+    }
+    if(!reduce) whenVisible(sp, function(){ if(!iv) iv = setInterval(flip, 3200); }, function(){ clearInterval(iv); iv = null; });
+    if(G && !reduce){
+      G.fromTo('.giant.g1', {xPercent:10}, {xPercent:-25, ease:'none', scrollTrigger:{trigger:'#parts', start:'top bottom', end:'bottom top', scrub:.5}});
+      G.fromTo('.giant.g2', {xPercent:-10}, {xPercent:20, ease:'none', scrollTrigger:{trigger:'#parts', start:'top bottom', end:'bottom top', scrub:.5}});
+    }
+  })();
+
+  /* mode scenes run only on screen */
+  $$('.scene').forEach(function(sc){ whenVisible(sc, function(){ sc.classList.add('run'); }, function(){ sc.classList.remove('run'); }, .1); });
+
+  /* parallax 3D decor + fluffy shape */
+  if(G && !reduce){
+    $$('.deco').forEach(function(d){ var v = +d.dataset.par || 30; G.fromTo(d, {yPercent:v, rotation:-v/3}, {yPercent:-v, rotation:v/3, ease:'none', scrollTrigger:{trigger:d.parentNode, start:'top bottom', end:'bottom top', scrub:.6}}); });
+    var fl = $('.fluff'); if(fl) G.fromTo(fl, {rotation:-10, yPercent:-10}, {rotation:20, yPercent:30, ease:'none', scrollTrigger:{trigger:'#platform', start:'top bottom', end:'bottom top', scrub:.8}});
+    // tilt cards on desktop
+    if(matchMedia('(pointer:fine)').matches){
+      $$('.mode, .lvl, .feat, .num').forEach(function(c){
+        G.set(c, {transformPerspective:900});
+        var rx = G.quickTo(c, 'rotationX', {duration:.5, ease:'power3'}), ry = G.quickTo(c, 'rotationY', {duration:.5, ease:'power3'});
+        c.addEventListener('pointermove', function(e){ var r = c.getBoundingClientRect(); ry(((e.clientX - r.left)/r.width - .5) * 8); rx(-((e.clientY - r.top)/r.height - .5) * 8); });
+        c.addEventListener('pointerleave', function(){ rx(0); ry(0); });
+      });
+    }
+    // 3D icons in mode cards bob
+    $$('.top3d').forEach(function(im, i){ G.to(im, {y:-7, duration:1.8 + i*.2, ease:'sine.inOut', yoyo:true, repeat:-1, delay:1.2}); });
   }
 
   /* how steps tick with scroll */
