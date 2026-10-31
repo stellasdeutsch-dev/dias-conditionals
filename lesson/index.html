@@ -181,20 +181,10 @@ section{padding:72px 0;position:relative}
 .band.or .track span i{color:var(--brown)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* story timeline */
-.tl{position:relative;max-width:760px;margin:0 auto;padding-left:34px}
-.tl::before{content:'';position:absolute;left:11px;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--line)}
-.tl .fill{position:absolute;left:11px;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--or);transform-origin:50% 0;transform:scaleY(1)}
-.gs .tl .fill{transform:scaleY(0)}
-.ev{position:relative;padding:18px 18px 18px;margin-bottom:14px}
-.ev::before{content:'';position:absolute;left:-30px;top:24px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--or);box-shadow:0 0 0 5px var(--bg)}
-.ev h3{margin:0;font-size:20px;letter-spacing:-.02em;font-weight:600;color:var(--brown)}
-.ev p{margin:7px 0 0;color:var(--mut)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;padding:4px 9px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:var(--mut)}
-.chip .ic{color:var(--or)}
+/* story */
 .story-grid{display:grid;gap:18px;margin-top:22px}
 .quote{padding:24px 22px;position:relative;overflow:hidden}
+.quote .who{margin:14px 0 0;color:var(--mut);font-size:15.5px}
 .quote .q{font-size:clamp(24px,6.4vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--brown);margin:10px 0 0}
 .quote .q mark{background:none;color:var(--or)}
 .quote .ru{color:var(--mut);margin:10px 0 0}
@@ -560,7 +550,7 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
   <div class="wrap">
     <a class="logo" href="#"><span class="lm"><svg class="ic"><use href="#i-asterisk"/></svg></span><span>Dias English<small>гайды без зубрёжки</small></span></a>
     <nav class="nav" aria-label="Разделы">
-      <a href="#story">История</a><a href="#types">5 режимов</a><a href="#machine">Машина времени</a><a href="#practice">Практика</a>
+      <a href="#types">5 режимов</a><a href="#machine">Машина времени</a><a href="#practice">Практика</a>
     </nav>
     <button type="button" class="vbtn" data-voice aria-label="Выбрать голос озвучки"><svg class="ic"><use href="#i-volume-2"/></svg></button>
     
@@ -609,28 +599,16 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
 
 <div class="band" aria-hidden="true"><div class="track"><span>If you die, you respawn <i>✳</i> If we attack now, we will win <i>✳</i> If I were you, I'd try again <i>✳</i> If you had saved, we wouldn't have lost <i>✳</i> If I hadn't played, I wouldn't be in Rome <i>✳</i></span><span>If you die, you respawn <i>✳</i> If we attack now, we will win <i>✳</i> If I were you, I'd try again <i>✳</i> If you had saved, we wouldn't have lost <i>✳</i> If I hadn't played, I wouldn't be in Rome <i>✳</i></span></div></div>
 
-<section id="story">
+<section id="story" style="padding:44px 0 8px">
   <div class="wrap">
-    <div class="head">
-      <span class="note">сначала коротко про меня</span>
-      <h2 class="h2 split">Как игры привели меня в Рим</h2>
-      <p class="sub">Не реклама игр. Просто так получилось.</p>
-    </div>
-    <div class="tl">
-      <div class="fill" id="tlFill"></div>
-      <div class="ev card rv"><h3>Казыгурт. Аул. Мне лет одиннадцать</h3><p>Компьютерные игры на английском. Половину не понимаю. Открываю переводчик и читаю каждое описание, как договор в банке.</p><div class="chips"><span class="chip"><svg class="ic"><use href="#i-map-pin"/></svg>Казахстан</span><span class="chip"><svg class="ic"><use href="#i-gamepad-2"/></svg>чтение</span></div></div>
-      <div class="ev card rv"><h3>Чат с другими игроками</h3><p>Пишут на английском. Ругаются на английском. Хочешь выиграть, отвечай. Так я заговорил. Не учил. Просто было надо.</p><div class="chips"><span class="chip"><svg class="ic"><use href="#i-mic"/></svg>speaking</span><span class="chip"><svg class="ic"><use href="#i-users"/></svg>живые люди</span></div></div>
-      <div class="ev card rv"><h3>НИШ</h3><p>Английский из игры помог поступить в Назарбаев Интеллектуальную школу. Там я понял главное. Язык берётся не силой воли. Подходом.</p><div class="chips"><span class="chip"><svg class="ic"><use href="#i-graduation-cap"/></svg>поступил</span></div></div>
-      <div class="ev card rv"><h3>Sapienza, Рим</h3><p>Поступил в Sapienza University of Rome. Итальянский выучил тем же способом. Погружение, практика, кайф от процесса.</p><div class="chips"><span class="chip"><svg class="ic"><use href="#i-plane"/></svg>Италия</span><span class="chip"><svg class="ic"><use href="#i-languages"/></svg>итальянский</span></div></div>
-      <div class="ev card rv"><h3>Сейчас</h3><p>Езжу по Европе. Английский нужен везде. Играю в футбольных лигах Италии. И объясняю английский так, как понял его сам.</p><div class="chips"><span class="chip"><svg class="ic"><use href="#i-globe"/></svg>Европа</span><span class="chip"><svg class="ic"><use href="#i-flame"/></svg>футбол</span></div></div>
-    </div>
     <div class="story-grid">
       <div class="quote card rv">
         <span class="badge">Mixed Conditional</span>
+        <p class="who">Я Диас. Из аула Казыгурт, учусь в Sapienza в Риме. Английский выучил в играх, а не на уроках.</p>
         <p class="q">If I hadn't played games in English, I <mark>wouldn't be</mark> in Rome now.</p>
         <p class="ru">Если бы я не играл в игры на английском, меня бы сейчас не было в Риме.</p>
         <div class="row"><button class="say" data-say="If I hadn't played games in English, I wouldn't be in Rome now." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span style="color:var(--mut);font-size:14px">послушай, как звучит</span></div>
-        <span class="note">это, кстати, тоже грамматика. Дойдём до неё в конце ↓</span>
+        <span class="note">это тоже грамматика. разберём в конце ↓</span>
       </div>
     </div>
   </div>
@@ -937,7 +915,6 @@ function xInit(){
     $$('.float').forEach(function(f, i){ G.to(f, {y:i%2 ? 9 : -9, rotation:'+=' + (i%2 ? 2 : -2), duration:2.4 + i*.3, ease:'sine.inOut', yoyo:true, repeat:-1, delay:1.2}); });
     G.to('.stage .sun', {yPercent:18, scale:1.08, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
     G.to('#prog', {scaleX:1, ease:'none', scrollTrigger:{trigger:'main', start:'top top', end:'bottom bottom', scrub:.3}});
-    G.fromTo('#tlFill', {scaleY:0}, {scaleY:1, ease:'none', scrollTrigger:{trigger:'.tl', start:'top 70%', end:'bottom 60%', scrub:.4}});
     if($('#howFill')) G.fromTo('#howFill', {scaleX:0}, {scaleX:1, ease:'none', scrollTrigger:{trigger:'.how', start:'top 80%', end:'top 30%', scrub:.4}});
     $$('.track').forEach(function(tr){
       var band = tr.parentNode, dir = band.classList.contains('or') ? 1 : -1, base = band.classList.contains('or') ? 1.5 : -2;
