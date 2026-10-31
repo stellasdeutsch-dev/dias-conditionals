@@ -462,6 +462,12 @@ details.fq2 p{margin:0;padding:0 18px 18px;color:var(--mut)}
 .dock .btn{padding:12px 14px;font-size:15px}
 @media(min-width:900px){.dock{left:50%;right:auto;width:520px;margin-left:-260px}}
 
+.price{max-width:1060px;margin:18px auto 0;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border:2px solid var(--or)}
+.price b{display:block;font-size:46px;font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--or)}
+.price span{color:var(--mut);font-size:15px}
+.price .btn{flex:1 1 220px}
+@media(min-width:700px){.price .btn{flex:0 0 auto}}
+
 /* outro */
 .outro{text-align:center}
 .outro .card{max-width:760px;margin:0 auto;padding:28px 22px}
@@ -1237,7 +1243,7 @@ function xInit(){
   function done(){
     var s = res.filter(Boolean).length, n = Q.length;
     var msg = s === n ? 'Идеально. Ты прошёл все пять режимов.' : s >= 6 ? 'Почти. Глянь ещё раз на Third и Mixed, там все и падают.' : 'Нормально для первого раза. Пролистай шпаргалку и попробуй снова.';
-    var link = AD ? '<a class="btn light" href="#platform">Ещё темы на платформе →</a>' : '<a class="btn light" href="#cheat">Шпаргалка →</a>';
+    var link = AD ? '<a class="btn light" href="#platform">Ещё 210+ гайдов →</a>' : '<a class="btn light" href="#cheat">Шпаргалка →</a>';
     qz.innerHTML = bar() + '<div class="qres"><img src="../media/3d-trophy.webp" alt="" width="110" height="110" style="width:96px;margin:0 auto"><div class="score">' + s + '/' + n + '</div><p class="qq" style="margin-top:0">' + msg + '</p><div class="cta" style="justify-content:center"><button type="button" class="btn dark" id="again"><svg class="ic"><use href="#i-repeat"/></svg>Ещё раз</button>' + link + '</div></div>';
     $('#again').onclick = function(){ qi = 0; res = []; drawQ(); };
     if(G && !reduce){ G.from('.qres .score', {scale:.3, rotation:-20, duration:1, ease:'elastic.out(1,.4)'}); confetti(qz, s*6); }
