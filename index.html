@@ -134,19 +134,23 @@ section{padding:72px 0;position:relative}
 .h1 .badge{font-size:.32em;vertical-align:.55em;margin-left:6px;letter-spacing:0}
 .stage{position:relative;height:440px;margin:0 -18px}
 .stage .sun{position:absolute;left:50%;bottom:-150px;width:520px;height:520px;margin-left:-260px;border-radius:50%;background:radial-gradient(circle at 50% 38%,#FFC79E 0,#FF8A45 38%,var(--or) 62%,rgba(246,92,14,0) 72%)}
-.stage .me{position:absolute;left:50%;bottom:0;height:410px;width:auto;translate:-50% 0;filter:drop-shadow(0 18px 30px rgba(58,31,20,.35))}
+.bigif{position:absolute;left:50%;bottom:118px;translate:-50% 0;font-size:200px;line-height:.8;font-weight:700;letter-spacing:-.07em;color:#fff;white-space:nowrap;
+  text-shadow:0 1px 0 #FBE3D4,0 2px 0 #F7D2BC,0 3px 0 #F3C2A5,0 4px 0 #EFB18E,0 5px 0 #EA9F77,0 6px 0 #E58E61,0 7px 0 #DF7C4B,0 8px 0 #D86A36,0 9px 0 #C95A28,0 22px 30px rgba(58,31,20,.45)}
+.bigif span{color:var(--brown);font-size:.55em;margin-left:.02em;text-shadow:0 1px 0 #5a3324,0 2px 0 #4f2c1f,0 3px 0 #44251a,0 4px 0 #391f15,0 16px 22px rgba(58,31,20,.4)}
+.stk.s3{left:14px;top:120px;width:62px}
+.stk.s4{right:112px;top:70px;width:54px}
 .bub{position:absolute;max-width:205px;background:linear-gradient(180deg,#4a3026,#2b1912);color:#fff;border-radius:18px;padding:11px 14px 12px;font-size:14px;line-height:1.3;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 30px -14px rgba(40,20,10,.6)}
 .bub small{display:block;font-size:10px;opacity:.55;margin-top:3px;text-align:right}
 .bub b{color:#FFB37E;font-weight:600}
 .bub.b1{left:16px;top:22px;rotate:-8deg}
-.bub.b2{right:12px;top:250px;rotate:6deg}
-.hb{position:absolute;left:18px;top:140px;z-index:3;font-size:17px}
+.bub.b2{right:12px;bottom:26px;rotate:5deg;z-index:2}
+.hb{position:absolute;left:16px;bottom:44px;z-index:3;font-size:17px}
 @media(min-width:900px){.hb{left:30px;top:190px}}
-.bub.b3{left:22px;bottom:70px;rotate:-4deg;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line),0 18px 30px -14px rgba(40,20,10,.4)}
+.bub.b3{display:none;left:22px;bottom:20px;z-index:2;rotate:-4deg;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line),0 18px 30px -14px rgba(40,20,10,.4)}
 .bub.b3 b{color:var(--or)}
 .stk{position:absolute;width:74px;filter:drop-shadow(0 12px 14px rgba(58,31,20,.28))}
 .stk.s1{right:26px;top:22px;width:80px}
-.stk.s2{right:40px;bottom:40px;width:66px}
+.stk.s2{right:16px;top:140px;width:62px}
 .stage .note{position:absolute;right:16px;top:140px;rotate:-6deg;flex-direction:column;align-items:flex-end}
 .stage .note svg{rotate:110deg}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;position:relative;z-index:2}
@@ -158,7 +162,9 @@ section{padding:72px 0;position:relative}
   .hero{padding-top:40px}
   .hero .wrap{grid-template-columns:1.05fr .95fr;align-items:center}
   .stage{height:600px;margin:0}
-  .stage .me{height:560px}
+  .bigif{font-size:320px;bottom:150px}
+  .bub.b3{display:block;left:30px;bottom:60px}
+  .hb{left:40px;top:200px;bottom:auto}
   .stage .sun{width:640px;height:640px;margin-left:-320px;bottom:-190px}
   .cta .btn{flex:0 0 auto}
   .stats{grid-column:1/-1;max-width:640px}
@@ -197,7 +203,7 @@ section{padding:72px 0;position:relative}
 .photo{padding:10px;position:relative}
 .photo img{border-radius:16px;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 45%}
 .photo .note{position:absolute;left:14px;bottom:18px;background:#fff;border-radius:12px;padding:6px 10px;rotate:-3deg;box-shadow:var(--sh)}
-@media(min-width:900px){.story-grid{grid-template-columns:1.3fr 1fr;max-width:900px;margin-left:auto;margin-right:auto}}
+@media(min-width:900px){.story-grid{max-width:760px;margin-left:auto;margin-right:auto}}
 
 /* how stepper */
 .how{display:grid;gap:12px;max-width:980px;margin:0 auto;position:relative}
@@ -435,7 +441,8 @@ section{padding:72px 0;position:relative}
 .dias blockquote{margin:0;font-size:clamp(23px,6vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1.12;color:var(--brown)}
 .dias cite{display:block;margin-top:12px;font-style:normal;color:var(--mut)}
 .dias .story{color:var(--mut);margin-top:12px}
-@media(min-width:860px){.dias{grid-template-columns:.8fr 1.2fr;gap:34px}}
+.dias{max-width:820px;text-align:center}
+.dias>div{padding:28px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
 .faqw{display:grid;gap:16px;max-width:1040px;margin:0 auto}
 details.fq2{padding:0;margin-bottom:10px}
 details.fq2 summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;font-size:18px;font-weight:500;letter-spacing:-.01em;cursor:pointer}
@@ -577,13 +584,14 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
     <div class="stage" aria-hidden="true">
       <div class="sun"></div>
       <span class="badge hb">5 режимов if</span>
-      <img class="me" src="media/dias-cut.webp" alt="" width="529" height="810" fetchpriority="high">
+      <div class="bigif">if<span>?</span></div>
+      <img class="stk s3 float" src="media/3d-rocket.webp" alt="" width="260" height="260">
+      <img class="stk s4 float" src="media/3d-crown.webp" alt="" width="260" height="260">
       <div class="bub b1 float">if u <b>had saved</b>, we <b>wouldn't have lost</b><small>23:47</small></div>
       <div class="bub b2 float">gg. if I <b>were</b> you, I'd <b>try</b> again<small>23:48</small></div>
       <div class="bub b3 float">If I hadn't played, <b>I wouldn't be in Rome</b><small>сейчас</small></div>
       <img class="stk s1 float" src="media/3d-fire.webp" alt="" width="260" height="260">
       <img class="stk s2 float" src="media/3d-trophy.webp" alt="" width="260" height="260">
-      <span class="note">это я. Казыгурт → Рим<svg viewBox="0 0 46 34"><path d="M4 4c10 2 22 8 30 20M34 24l-1-9M34 24l-9-2"/></svg></span>
     </div>
     <div class="stats stg">
       <div class="stat"><b class="count" data-to="5">5</b><span>режимов if</span></div>
@@ -624,7 +632,6 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <div class="row"><button class="say" data-say="If I hadn't played games in English, I wouldn't be in Rome now." aria-label="Озвучить"><svg class="ic"><use href="#i-volume-2"/></svg></button><span style="color:var(--mut);font-size:14px">послушай, как звучит</span></div>
         <span class="note">это, кстати, тоже грамматика. Дойдём до неё в конце ↓</span>
       </div>
-      <figure class="photo card rv"><img src="media/dias-italy.webp" alt="Диас на холме над морем в Италии" width="900" height="1600" loading="lazy"><span class="note">Италия. Ни одного учебника в кадре</span></figure>
     </div>
   </div>
 </section>
@@ -824,8 +831,8 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
         <div class="cta"><a class="btn dark" href="#ask"><svg class="ic"><use href="#i-asterisk"/></svg>Открыть Dias English</a><a class="btn light" href="#inside"><svg class="ic"><use href="#i-eye"/></svg>Что внутри</a></div>
       </div>
       <div class="media rv">
-        <span class="badge">живая запись экрана</span>
-        <span class="note">листаю карту A0–A1 ↓</span>
+        <!--LIVE--><span class="badge">живая запись экрана</span>
+        <span class="note">листаю карту A0–A1 ↓</span><!--/LIVE-->
         <div class="frame"><div class="bar"><i></i><i></i><i></i><span>notion.site / Дорожная карта A0-A1</span></div><video class="vid" muted loop playsinline preload="none" data-poster="media/n-desktop.jpg" src="media/n-desktop.mp4"></video></div>
         
       </div>
@@ -917,7 +924,6 @@ html:not(.gs) .io .rv:not(.in){translate:0 40px}
 <section class="plat" style="padding-top:20px">
   <div class="wrap">
     <div class="dias">
-      <div class="pic rv"><span class="stars">★★★★★</span><img src="media/dias-cut.webp" alt="Диас" width="529" height="810" loading="lazy"></div>
       <div class="rv">
         <blockquote>«Я не учитель. Я парень из Казыгурта, который выучил английский в игре, а итальянский в Риме»</blockquote>
         <cite>Диас, студент Sapienza University of Rome</cite>
